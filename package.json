@@ -11,8 +11,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "aws-amplify": "^1.2.2",
-    "aws-amplify-vue": "^0.3.2",
-    "nuxt": "^2.0.0"
+    "@nuxtjs/dotenv": "^1.4.1",
+    "aws-amplify": "^3.0.12",
+    "aws-amplify-vue": "^2.1.1",
+    "nuxt": "^2.12.2"
   }
 }
