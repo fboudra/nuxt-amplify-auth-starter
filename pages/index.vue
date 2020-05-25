@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { Auth } from 'aws-amplify'
-import { AmplifyEventBus } from 'aws-amplify-vue'
+import { Auth } from '@aws-amplify/auth'
+import { Hub } from '@aws-amplify/core'
 
 export default {
   data() {
@@ -34,13 +34,14 @@ export default {
   created() {
     this.findUser()
 
-    AmplifyEventBus.$on('authState', info => {
-      if(info === "signedIn") {
+    const listener = (data) => {
+      if(data.payload.event === "signIn") {
         this.findUser()
       } else {
         this.signedIn = false
       }
-    })
+    }
+    Hub.listen('auth', listener)
   }
 }
 </script>
